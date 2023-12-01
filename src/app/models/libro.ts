@@ -1,4 +1,5 @@
   export class Libr {
+    clase: string ;
 
       titulo: string ;
       fechalan: string ;
@@ -11,18 +12,18 @@
       autor: number ; 
       editorial: number ; 
       categoria: number;
-
+      lector: number; 
       
       constructor (){ 
-        this.titulo="";
-        this.fechalan="";
-        this.idioma="";
-        this.paginas="";
-        this.descripcion="";
-        this.portada="";
+
+        this.clase="";
+
+
+
         this.autor=0;
         this.editorial=0;
         this.categoria=0;
+        this.lector=0;
       }
     }
     

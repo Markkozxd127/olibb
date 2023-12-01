@@ -4,6 +4,7 @@ import { Autr } from 'src/app/models/autor';
 import { Cate } from 'src/app/models/categoria';
 import { Editor } from 'src/app/models/editorial';
 import { Libr } from 'src/app/models/libro';
+import { Lect } from 'src/app/models/lector';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class LibroPagesComponent implements OnInit {
   autores: Autr[] = [];
   editoriales: Editor[] = [];
   categorias: Cate[] = [];
+  lectors: Lect[] = [];
+
   libros: any[] = [];
   idLibroEliminar: number = 0;
   idLibroEditar: number = 0;
@@ -43,6 +46,9 @@ export class LibroPagesComponent implements OnInit {
     });
     this.libroService.obtenerCategorias().subscribe((data) => {
       this.categorias = data;
+    });
+    this.libroService.obtenerLector().subscribe((data) => {
+      this.lectors = data;
     });
   }
   //----------------------------------------------------------------------------------------
@@ -90,19 +96,27 @@ export class LibroPagesComponent implements OnInit {
   //----------------------------------------------------------------------------------------
   obtenerNombreAutor(id: number): string {
     const autor = this.autores.find((a) => a.id === id);
-    return autor ? `${autor.nombreautor} ${autor.apellidosautor}` : '';
+    return autor ? `${autor.dni} ${autor.nombrecliente}` : '';
   }
   //----------------------------------------------------------------------------------------
   obtenerNombreCategoria(id: number): string {
     const categoria = this.categorias.find((c) => c.id === id);
-    return categoria ? categoria.nombrecategoria : '';
+    return categoria ? categoria.nombrehotel : '';
   }
   //----------------------------------------------------------------------------------------
   obtenerNombreEditorial(id: number): string {
     const editorial = this.editoriales.find((e) => e.id === id);
-    return editorial ? editorial.nombreeditorial : '';
+    return editorial ? editorial.direccion : '';
   }
   //----------------------------------------------------------------------------------------
+
+  obtenerNombreLector(id: number): string {
+    const lector = this.lectors.find((e) => e.id === id);
+    return lector ? lector.fechasa : '';
+  }
+
+
+
   // Eliminar un libro
   eliminarLibro(id: number) {
     this.libroService.deleteLibro(id).subscribe(
@@ -127,6 +141,8 @@ export class LibroPagesComponent implements OnInit {
     this.nuevoLibro.autor = libroParaEditar.autor.id;
     this.nuevoLibro.editorial = libroParaEditar.editorial.id;
     this.nuevoLibro.categoria = libroParaEditar.categoria.id;
+    this.nuevoLibro.lector = libroParaEditar.lector.id;
+
   }
 
   editarLibro() {

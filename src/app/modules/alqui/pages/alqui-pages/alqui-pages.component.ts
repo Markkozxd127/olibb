@@ -64,7 +64,7 @@ agregarAlquiler() {
 //----------------------------------------------------------------------------------------
 obtenerLector(id: number): string {
    const lector = this.lectors.find((a) => a.id === id);
-    return lector ? lector.nombre: '';
+    return lector ? lector.numeropla: '';
   }
 
 

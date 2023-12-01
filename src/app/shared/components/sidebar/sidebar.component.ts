@@ -13,32 +13,32 @@ export class SidebarComponent implements OnInit {
   menus: Array<any> = [
     {
       link: '/home/edi',
-      name: 'EDITORIALES',
+      name: 'SUCURSALES',
       icon: 'fa-solid fa-file-contract',
     },
     {
       link: '/home/cate',
-      name: ' CATEGORIA',
+      name: ' HOTEL',
       icon: 'fa-solid fa-face-smile',
     },
     {
       link: '/home/autor',
-      name: 'AUTORERS',
+      name: 'CLIENTE',
       icon: 'fa-solid fa-list-check',
     },
     {
       link: '/home/libro',
-      name: 'LIST LIBRO ',
+      name: 'LIST RESERVA ',
       icon: 'fa-solid fa-list-check',
     },
     {
       link: '/home/alqui',
-      name: 'ALQUILER',
+      name: '-----',
       icon: 'fa-solid fa-list-check',
     },
     {
       link: '/home/lectores',
-      name: 'LECTORES',
+      name: 'VUELO',
       icon: 'fa-solid fa-list-check',
     },
     

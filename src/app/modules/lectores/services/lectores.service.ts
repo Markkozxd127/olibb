@@ -7,27 +7,27 @@ import { Lect } from 'src/app/models/lector';
   providedIn: 'root'
 })
 export class LectoresService {
-  public URL: string = 'http://localhost:8090/api/lectores';
+  public URL: string = 'http://localhost:8000/api/vuelo';
   
   constructor(public http: HttpClient) {}
 
   public getAllLector(): Observable<Lect[]> {
-    return this.http.get<Lect[]>(`${this.URL}/ListLect`);
+    return this.http.get<Lect[]>(`${this.URL}/ListVuelo`);
   } 
 
   public getLectorById(id: number): Observable<Lect> {
-    return this.http.get<Lect>(`${this.URL}/BuscarLect/${id}`);
+    return this.http.get<Lect>(`${this.URL}/BuscarVuelo/${id}`);
   }
 
   public createLector(lector: Lect): Observable<Lect> {
-    return this.http.post<Lect>(`${this.URL}/InsertLect`,lector);
+    return this.http.post<Lect>(`${this.URL}/InsertVuelo`,lector);
   }
 
   public updateLector(id: number, lector: Lect): Observable<Lect> {
-    return this.http.put<Lect>(`${this.URL}/EdidLect/${id}`,lector);
+    return this.http.put<Lect>(`${this.URL}/EditarVuelo/${id}`,lector);
   }
 
   public deleteLector(id: number): Observable<any> {
-    return this.http.delete(`${this.URL}/DeleteLect/${id}`);
+    return this.http.delete(`${this.URL}/DeleteVuelo/${id}`);
   }
 }

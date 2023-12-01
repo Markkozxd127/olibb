@@ -1,5 +1,11 @@
 export class Lib {
     id: number = 0;
+
+
+    clase: string = "";
+
+
+
     titulo: string = "";
     fechalan: string = "";
     idioma: string = "";
@@ -10,16 +16,14 @@ export class Lib {
     autor: number;
     editorial: number;
     categoria: number;
-
+    lector: number; 
     constructor() {
-        this.titulo = "";
-        this.fechalan = "";
-        this.idioma = "";
-        this.paginas = "";
-        this.descripcion = "";
-        this.portada = "";
+        this.clase = "";
+
+ 
         this.autor;
         this.editorial;
         this.categoria;
+        this.lector;
     }
 }

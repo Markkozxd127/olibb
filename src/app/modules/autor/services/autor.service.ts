@@ -7,27 +7,27 @@ import { Autr } from 'src/app/models/autor';
   providedIn: 'root'
 })
 export class AutorService {
-  public URL: string = 'http://localhost:8090/api/autores';
+  public URL: string = 'http://localhost:8000/api/cliente';
   
   constructor(public http: HttpClient) {}
 
   public getAllAutor(): Observable<Autr[]> {
-    return this.http.get<Autr[]>(`${this.URL}/ListAutores`);
+    return this.http.get<Autr[]>(`${this.URL}/ListCli`);
   } 
 
   public getAutorById(id: number): Observable<Autr> {
-    return this.http.get<Autr>(`${this.URL}/BuscarAutores/${id}`);
+    return this.http.get<Autr>(`${this.URL}/BuscarCli/${id}`);
   }
 
   public createAutor(autor: Autr): Observable<Autr> {
-    return this.http.post<Autr>(`${this.URL}/InsertAutores`,autor);
+    return this.http.post<Autr>(`${this.URL}/InsertCli`,autor);
   }
 
   public updateAutor(id: number, autor: Autr): Observable<Autr> {
-    return this.http.put<Autr>(`${this.URL}/EdidAutores/${id}`,autor);
+    return this.http.put<Autr>(`${this.URL}/EditarCli/${id}`,autor);
   }
 
   public deleteAutor(id: number): Observable<any> {
-    return this.http.delete(`${this.URL}/DeleteAutores/${id}`);
+    return this.http.delete(`${this.URL}/DeleteCli/${id}`);
   }
 }

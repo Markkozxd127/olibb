@@ -7,27 +7,27 @@ import { Cate } from 'src/app/models/categoria';
   providedIn: 'root'
 })
 export class CateService {
-  public URL: string = 'http://localhost:8090/api/categorias';
+  public URL: string = 'http://localhost:8000/api/hotel';
   
   constructor(public http: HttpClient) {}
 
   public getAllCategoria(): Observable<Cate[]> {
-    return this.http.get<Cate[]>(`${this.URL}/ListCate`);
+    return this.http.get<Cate[]>(`${this.URL}/ListHo`);
   } 
 
   public getCategoriaById(id: number): Observable<Cate> {
-    return this.http.get<Cate>(`${this.URL}/BuscarCate/${id}`);
+    return this.http.get<Cate>(`${this.URL}/BuscarHo/${id}`);
   }
 
   public createCategoria(categoria: Cate): Observable<Cate> {
-    return this.http.post<Cate>(`${this.URL}/InsertCate`,categoria);
+    return this.http.post<Cate>(`${this.URL}/InsertHo`,categoria);
   }
 
   public updateCategoria(id: number, categoria: Cate): Observable<Cate> {
-    return this.http.put<Cate>(`${this.URL}/EditarCate/${id}`,categoria);
+    return this.http.put<Cate>(`${this.URL}/EditarHo/${id}`,categoria);
   }
 
   public deleteCategoria(id: number): Observable<any> {
-    return this.http.delete(`${this.URL}/DeleteCate/${id}`);
+    return this.http.delete(`${this.URL}/DeleteHo/${id}`);
   }
 }
